@@ -23,7 +23,7 @@
                 <li class="nav-item">
                     <a href="/jenis-obat" class="nav-link {{ Request::is('jenis-obat') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-pills"></i>
-                        <p>Jenis Obat</p>
+                        <p>Kategori Obat</p>
                     </a>
                 </li>
                 @if (request()->session()->get('user')['role'] === 'OWNER')

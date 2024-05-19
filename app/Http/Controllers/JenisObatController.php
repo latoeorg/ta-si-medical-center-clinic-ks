@@ -43,19 +43,16 @@ class JenisObatController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(JenisObat $jenisObat)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, JenisObat $jenisObat)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $item = JenisObat::findOrFail($id);
+        $item->update($data);
+
+        return redirect()->route('jenis-obat.index')->with('success', 'Data berhasil diubah');
     }
 
     /**

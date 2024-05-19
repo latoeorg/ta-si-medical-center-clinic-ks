@@ -3,12 +3,12 @@
     aria-labelledby="formUpdate{{ $item->id }}Label" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="{{ route('user.update', $item->id) }}" method="POST">
+            <form action="{{ route('jenis-obat.update', $item->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="modal-header">
                     <h5 class="modal-title" id="formUpdate{{ $item->id }}Label">
-                        Update User
+                        Update Kategori Obat
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -16,29 +16,24 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Masukan Full Name"
-                            name="name" required value="{{ $item->name }}" />
+                        <label for="tipe">Tipe</label>
+                        <select name="tipe" id="tipe" class="form-control" required>
+                            <option value="">-- Tipe Kategori --</option>
+                            @foreach ($list_tipe as $tipe)
+                                <option value="{{ $tipe }}" {{ $item->tipe == $tipe ? 'selected' : '' }}>
+                                    {{ $tipe }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="birthdate">Birthdate</label>
-                        <input type="date" class="form-control" id="birthdate" placeholder="Masukan Tanggal Lahir"
-                            name="birthdate" value="{{ $item->birthdate }}" />
+                        <label for="nama">Nama Category</label>
+                        <input type="text" class="form-control" id="nama" placeholder="Masukan Nama Category"
+                            name="nama" required value="{{ $item->nama }}" />
                     </div>
                     <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Masukan email address"
-                            name="email" required value="{{ $item->email }}" />
-                    </div>
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" placeholder="Masukan username"
-                            name="username" required value="{{ $item->username }}" />
-                    </div>
-                    <div class="form-group">
-                        <label for="Password">Password</label>
-                        <input type="password" class="form-control" id="Password"
-                            placeholder="Masukan Password untuk update" name="password" />
+                        <label for="keterangan">Keterangan</label>
+                        <textarea type="text" class="form-control" id="keterangan" placeholder="Keterangan" name="keterangan">{{ $item->keterangan }}</textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
