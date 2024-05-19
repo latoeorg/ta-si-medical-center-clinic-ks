@@ -3,15 +3,15 @@ version: "3"
 services:
     db:
         image: mysql
-        container_name: it_inventory_maytree_db
+        container_name: ta_si_medical_center_clinic_ks_db
         restart: unless-stopped
         environment:
             MYSQL_DATABASE: laravel
             MYSQL_ROOT_PASSWORD: root
         ports:
-            - "33061:3306"
+            - "33062:3306"
         volumes:
-            - it_inventory_maytree_data:/var/lib/mysql
+            - ta_si_medical_center_clinic_ks_data:/var/lib/mysql
 
 volumes:
-    it_inventory_maytree_data:
+    ta_si_medical_center_clinic_ks_data:
