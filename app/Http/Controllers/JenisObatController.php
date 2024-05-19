@@ -12,15 +12,14 @@ class JenisObatController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $list_tipe = ['Obat Bebas Terbatas', 'Obat Bebas', 'Obat Keras (K)', 'Obat Keras (N)', 'Obat Psikotropika', 'Obat Narkotika', 'Obat Herbal', 'Obat Tradisional'];
+        $items = JenisObat::all();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return view('pages.jenis-obat.index', [
+            'list_tipe' => $list_tipe,
+
+            'items' => $items,
+        ]);
     }
 
     /**
@@ -28,7 +27,11 @@ class JenisObatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        JenisObat::create($data);
+
+        return redirect()->route('jenis-obat.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
