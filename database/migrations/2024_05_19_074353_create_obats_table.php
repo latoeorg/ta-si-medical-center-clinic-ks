@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('obats', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->integer('jenis_obat_id')->unsigned();
+            $table->integer('kategori_id')->unsigned();
             $table->string('tipe');
             $table->string('dosis');
             $table->string('keterangan')->nullable();

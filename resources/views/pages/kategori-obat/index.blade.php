@@ -21,14 +21,12 @@
                         <div class="card-body">
                             <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
                                     class="fa fa-plus"></i> Tambah</a>
-                            @include('pages.jenis-obat.create')
+                            @include('pages.kategori-obat.create')
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
-                                        <th>Tipe</th>
-                                        <th>Keterangan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -40,18 +38,9 @@
                                                 {{ $i }}
                                             </td>
                                             <td>{{ $item->nama }}</td>
-                                            <td>{{ $item->tipe }}</td>
-                                            <td>
-                                                @if (strlen($item->keterangan) > 100)
-                                                    {{ substr($item->keterangan, 0, 100) }}...
-                                                @elseif ($item->keterangan == null)
-                                                    -
-                                                @else
-                                                    {{ $item->keterangan }}
-                                                @endif
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
-                                                    action="{{ route('jenis-obat.destroy', $item->id) }}" method="POST"
+                                                    action="{{ route('kategori-obat.destroy', $item->id) }}" method="POST"
                                                     class="d-inline">
                                                     @csrf
                                                     @method('delete')
@@ -85,7 +74,7 @@
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
-                                        @include('pages.jenis-obat.update')
+                                        @include('pages.kategori-obat.update')
                                     @endforeach
                                 </tbody>
                             </table>

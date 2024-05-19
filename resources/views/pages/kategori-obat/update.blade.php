@@ -3,7 +3,7 @@
     aria-labelledby="formUpdate{{ $item->id }}Label" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="{{ route('jenis-obat.update', $item->id) }}" method="POST">
+            <form action="{{ route('kategori-obat.update', $item->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="modal-header">
@@ -16,24 +16,9 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="tipe">Tipe</label>
-                        <select name="tipe" id="tipe" class="form-control" required>
-                            <option value="">-- Tipe Kategori --</option>
-                            @foreach ($list_tipe as $tipe)
-                                <option value="{{ $tipe }}" {{ $item->tipe == $tipe ? 'selected' : '' }}>
-                                    {{ $tipe }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
                         <label for="nama">Nama Category</label>
                         <input type="text" class="form-control" id="nama" placeholder="Masukan Nama Category"
                             name="nama" required value="{{ $item->nama }}" />
-                    </div>
-                    <div class="form-group">
-                        <label for="keterangan">Keterangan</label>
-                        <textarea type="text" class="form-control" id="keterangan" placeholder="Keterangan" name="keterangan">{{ $item->keterangan }}</textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

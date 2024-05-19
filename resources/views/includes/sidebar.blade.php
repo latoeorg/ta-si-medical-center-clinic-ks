@@ -21,7 +21,7 @@
                 </li>
                 <li class="nav-header font-weight-bold">Setup</li>
                 <li class="nav-item">
-                    <a href="/jenis-obat" class="nav-link {{ Request::is('jenis-obat') ? 'active' : '' }}">
+                    <a href="/kategori-obat" class="nav-link {{ Request::is('kategori-obat') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-pills"></i>
                         <p>Kategori Obat</p>
                     </a>

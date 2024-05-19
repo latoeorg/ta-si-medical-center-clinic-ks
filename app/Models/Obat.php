@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\JenisObat;
+use App\Models\KategoriObat;
 
 class Obat extends Model
 {
@@ -16,10 +16,10 @@ class Obat extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['nama', 'jenis_obat_id', 'tipe', 'dosis', 'keterangan'];
+    protected $fillable = ['nama', 'kategori_id', 'tipe', 'dosis', 'keterangan'];
 
-    public function jenisObat()
+    public function kategori()
     {
-        return $this->belongsTo(JenisObat::class);
+        return $this->belongsTo(KategoriObat::class, 'kategori_id', 'id');
     }
 }

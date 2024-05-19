@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class JenisObat extends Model
+class KategoriObat extends Model
 {
     use HasFactory;
 
@@ -14,5 +14,5 @@ class JenisObat extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['nama', 'tipe', 'keterangan'];
+    protected $fillable = ['nama'];
 }

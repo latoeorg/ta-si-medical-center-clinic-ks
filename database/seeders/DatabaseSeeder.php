@@ -69,5 +69,13 @@ class DatabaseSeeder extends Seeder
             'phone' => '1234567890',
             'birthdate' => '1990-01-01',
         ]);
+
+        $kategori_obat = ['Obat Bebas Terbatas', 'Obat Bebas', 'Obat Keras (K)', 'Obat Herbal', 'Obat Narkotika', 'Obat Psikotropika'];
+
+        foreach ($kategori_obat as $kategori) {
+            DB::table('kategori_obats')->insert([
+                'nama' => $kategori,
+            ]);
+        }
     }
 }
