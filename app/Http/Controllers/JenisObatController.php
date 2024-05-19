@@ -58,8 +58,11 @@ class JenisObatController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(JenisObat $jenisObat)
+    public function destroy($id)
     {
-        //
+        $item = JenisObat::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('jenis-obat.index')->with('success', 'Data berhasil dihapus');
     }
 }
