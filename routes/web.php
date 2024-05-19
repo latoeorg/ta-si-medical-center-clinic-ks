@@ -6,6 +6,8 @@ use App\Http\Controllers\AuthController;
 
 use App\Http\Controllers\DashboardController;
 
+use App\Http\Controllers\ObatController;
+
 use App\Http\Controllers\KategoriObatController;
 use App\Http\Controllers\UserController;
 
@@ -19,6 +21,8 @@ Route::post('/logout', [AuthController::class, 'logout']);
 
 // DASHBOARD
 Route::resource('/', DashboardController::class)->middleware('auth');
+
+Route::resource('/obat', ObatController::class)->middleware('auth');
 
 Route::resource('/kategori-obat', KategoriObatController::class)->middleware('auth');
 Route::resource('/user', UserController::class)->middleware('auth');

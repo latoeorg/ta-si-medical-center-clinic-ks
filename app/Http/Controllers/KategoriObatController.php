@@ -49,10 +49,8 @@ class KategoriObatController extends Controller
      */
     public function destroy($id)
     {
-        $data = $request->all();
-
         $item = KategoriObat::findOrFail($id);
-        $item->update($data);
+        $item->delete();
 
         return redirect()->route('kategori-obat.index')->with('status', 'Data berhasil diubah');
     }

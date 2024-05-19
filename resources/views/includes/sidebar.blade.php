@@ -19,6 +19,12 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="/obat" class="nav-link {{ Request::is('obat') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-pills"></i>
+                        <p>Obat</p>
+                    </a>
+                </li>
                 <li class="nav-header font-weight-bold">Setup</li>
                 <li class="nav-item">
                     <a href="/kategori-obat" class="nav-link {{ Request::is('kategori-obat') ? 'active' : '' }}">

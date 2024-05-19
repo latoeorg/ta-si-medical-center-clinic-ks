@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Obat;
+use App\Models\KategoriObat;
 use Illuminate\Http\Request;
 
 class ObatController extends Controller
@@ -12,15 +13,17 @@ class ObatController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $items = Obat::all();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $list_kategori = KategoriObat::all();
+        $list_tipe = ['Tablet', 'Kapsul', 'Sirup', 'Salep', 'Obat Tetes', 'Injeksi'];
+
+        return view('pages.obat.index', [
+            'items' => $items,
+
+            'list_kategori' => $list_kategori,
+            'list_tipe' => $list_tipe,
+        ]);
     }
 
     /**
@@ -28,7 +31,11 @@ class ObatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        Obat::create($data);
+
+        return redirect()->route('obat.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -40,26 +47,26 @@ class ObatController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Obat $obat)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Obat $obat)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $item = Obat::findOrFail($id);
+        $item->update($data);
+
+        return redirect()->route('obat.index')->with('success', 'Obat berhasil diubah');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Obat $obat)
+    public function destroy($id)
     {
-        //
+        $item = Obat::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('obat.index')->with('success', 'Obat berhasil dihapus');
     }
 }
