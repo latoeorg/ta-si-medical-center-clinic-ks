@@ -25,6 +25,19 @@
                         <p>Obat</p>
                     </a>
                 </li>
+                <li class="nav-header font-weight-bold">Rekam Medis</li>
+                <li class="nav-item">
+                    <a href="/pemeriksaan" class="nav-link {{ Request::is('pemeriksaan') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-stethoscope"></i>
+                        <p>Pemeriksaan</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/pasien" class="nav-link {{ Request::is('pasien') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-user-injured"></i>
+                        <p>Pasien</p>
+                    </a>
+                </li>
                 <li class="nav-header font-weight-bold">Setup</li>
                 <li class="nav-item">
                     <a href="/kategori-obat" class="nav-link {{ Request::is('kategori-obat') ? 'active' : '' }}">
