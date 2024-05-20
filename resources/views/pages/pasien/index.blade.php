@@ -28,8 +28,8 @@
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>No Telp</th>
-                                        <th>Email</th>
                                         <th>Tanggal Lahir</th>
+                                        <th>Gol Darah</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -42,8 +42,8 @@
                                             </td>
                                             <td>{{ $item->nama }}</td>
                                             <td>{{ $item->no_telp }}</td>
-                                            <td>{{ $item->email }}</td>
                                             <td>{{ $item->tanggal_lahir }}</td>
+                                            <td>{{ $item->golongan_darah }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('pasien.destroy', $item->id) }}" method="POST"

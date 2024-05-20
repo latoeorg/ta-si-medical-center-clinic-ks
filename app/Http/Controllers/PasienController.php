@@ -45,19 +45,15 @@ class PasienController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Pasien $pasien)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Pasien $pasien)
     {
-        //
+        $data = $request->all();
+
+        $pasien->update($data);
+
+        return redirect()->route('pasien.index')->with('status', 'Data pasien berhasil diubah.');
     }
 
     /**
@@ -65,6 +61,8 @@ class PasienController extends Controller
      */
     public function destroy(Pasien $pasien)
     {
-        //
+        $pasien->delete();
+
+        return redirect()->route('pasien.index')->with('status', 'Data pasien berhasil dihapus.');
     }
 }
