@@ -27,7 +27,7 @@
                 </li>
                 <li class="nav-header font-weight-bold">Rekam Medis</li>
                 <li class="nav-item">
-                    <a href="/pemeriksaan" class="nav-link {{ Request::is('pemeriksaan') ? 'active' : '' }}">
+                    <a href="/rekam-medis" class="nav-link {{ Request::is('rekam-medis') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-stethoscope"></i>
                         <p>Pemeriksaan</p>
                     </a>
@@ -45,7 +45,7 @@
                         <p>Kategori Obat</p>
                     </a>
                 </li>
-                @if (request()->session()->get('user')['role'] === 'OWNER')
+                @if (request()->session()->get('user')['role'] === 'KEPALA_KLINIK')
                     <li class="nav-item">
                         <a href="/user" class="nav-link {{ Request::is('user') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-users"></i>

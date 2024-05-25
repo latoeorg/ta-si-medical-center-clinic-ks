@@ -2,23 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\RekamMedis;
+use App\Models\RekamMedisObat;
 use Illuminate\Http\Request;
 
-use App\Models\Pasien;
-
-class RekamMedisController extends Controller
+class RekamMedisObatController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $items = RekamMedis::all();
-
-        return view('pages.rekam-medis.index', [
-            'items' => $items,
-        ]);
+        //
     }
 
     /**
@@ -26,11 +20,7 @@ class RekamMedisController extends Controller
      */
     public function create()
     {
-        $list_pasien = Pasien::all();
-
-        return view('pages.rekam-medis.create', [
-            'list_pasien' => $list_pasien,
-        ]);
+        //
     }
 
     /**
@@ -38,15 +28,13 @@ class RekamMedisController extends Controller
      */
     public function store(Request $request)
     {
-        RekamMedis::create($request->all());
-
-        return redirect()->route('rekam-medis.index')->with('success', 'Rekam Medis berhasil ditambahkan');
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(RekamMedis $rekamMedis)
+    public function show(RekamMedisObat $rekamMedisObat)
     {
         //
     }
@@ -54,7 +42,7 @@ class RekamMedisController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(RekamMedis $rekamMedis)
+    public function edit(RekamMedisObat $rekamMedisObat)
     {
         //
     }
@@ -62,7 +50,7 @@ class RekamMedisController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, RekamMedis $rekamMedis)
+    public function update(Request $request, RekamMedisObat $rekamMedisObat)
     {
         //
     }
@@ -70,7 +58,7 @@ class RekamMedisController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(RekamMedis $rekamMedis)
+    public function destroy(RekamMedisObat $rekamMedisObat)
     {
         //
     }

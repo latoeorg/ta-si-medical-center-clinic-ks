@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->integer('kategori_id')->unsigned();
             $table->string('tipe');
             $table->string('dosis');
+            $table->integer('harga');
             $table->string('keterangan')->nullable();
             $table->timestamps();
         });

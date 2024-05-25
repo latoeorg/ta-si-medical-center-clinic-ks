@@ -10,15 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('rekam_medis', function (Blueprint $table) {
+        Schema::create('rekam_medis_obats', function (Blueprint $table) {
             $table->id();
-            $table->integer('pasien_id')->unsigned();
-            $table->integer('doctor_id')->unsigned();
-            $table->date('tanggal')->default(now());
-            $table->text('keluhan')->nullable();
-            $table->text('diagnosis')->nullable();
+            $table->foreignId('rekam_medis_id')->constrained('rekam_medis');
+            $table->foreignId('obat_id')->constrained('obats');
+            $table->integer('jumlah');
+            $table->text('aturan_pakai')->nullable();
             $table->text('keterangan')->nullable();
-            $table->text('status');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('rekam_medis');
+        Schema::dropIfExists('rekam_medis_obats');
     }
 };
