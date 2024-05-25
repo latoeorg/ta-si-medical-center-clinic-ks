@@ -54,6 +54,13 @@
                                     name="dosis" required />
                             </div>
                         </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="harga">Harga</label>
+                                <input type="text" class="form-control" id="harga" placeholder="Masukan Harga"
+                                    name="harga" required />
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">

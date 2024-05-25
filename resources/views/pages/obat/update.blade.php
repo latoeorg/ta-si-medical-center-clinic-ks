@@ -58,6 +58,13 @@
                                     name="dosis" required value="{{ $item->dosis }}" />
                             </div>
                         </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="harga">Harga</label>
+                                <input type="text" class="form-control" id="harga" placeholder="Masukan Harga"
+                                    name="harga" required value="{{ $item->harga }}" />
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">

@@ -30,6 +30,7 @@
                                         <th>Kategori</th>
                                         <th>Tipe</th>
                                         <th>Dosis</th>
+                                        <th>Harga</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -44,6 +45,7 @@
                                             <td>{{ $item->kategori->nama }}</td>
                                             <td>{{ $item->tipe }}</td>
                                             <td>{{ $item->dosis }}</td>
+                                            <td class="rupiah-format">{{ $item->harga }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('obat.destroy', $item->id) }}" method="POST"
