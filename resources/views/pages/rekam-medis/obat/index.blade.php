@@ -84,7 +84,7 @@
                                     <td class="rupiah-format text-right">{{ $item->total_harga }}</td>
                                     <td>
                                         <form id="formDelete{{ $item->id }}"
-                                            action="{{ route('kategori-obat.destroy', $item->id) }}" method="POST"
+                                            action="{{ route('rekam-medis-obat.destroy', $item->id) }}" method="POST"
                                             class="d-inline">
                                             @csrf
                                             @method('delete')
@@ -111,11 +111,13 @@
                                                 })
                                             }
                                         </script>
-                                        <a href="{{ route('rekam-medis.show', $item->id) }}" class="btn btn-warning">
+                                        <a type="button" class="btn btn-warning" data-toggle="modal"
+                                            data-target="#formUpdate{{ $item->id }}">
                                             <i class="fa fa-edit" title="Ubah Data User"></i>
                                         </a>
                                     </td>
                                 </tr>
+                                @include('pages.rekam-medis.obat.update')
                                 <?php $i++; ?>
                             @endforeach
                         </tbody>
