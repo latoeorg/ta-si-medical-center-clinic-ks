@@ -10,6 +10,7 @@ use App\Http\Controllers\ObatController;
 use App\Http\Controllers\RekamMedisController;
 use App\Http\Controllers\RekamMedisObatController;
 use App\Http\Controllers\PasienController;
+use App\Http\Controllers\RiwayatRekamMedisController;
 
 use App\Http\Controllers\KategoriObatController;
 use App\Http\Controllers\UserController;
@@ -29,6 +30,7 @@ Route::resource('/obat', ObatController::class)->middleware('auth');
 Route::resource('/rekam-medis', RekamMedisController::class)->middleware('auth');
 Route::resource('/rekam-medis-obat', RekamMedisObatController::class)->middleware('auth');
 Route::resource('/pasien', PasienController::class)->middleware('auth');
+Route::resource('/riwayat-rekam-medis', RiwayatRekamMedisController::class)->middleware('auth');
 
 Route::resource('/kategori-obat', KategoriObatController::class)->middleware('auth');
 Route::resource('/user', UserController::class)->middleware('auth');

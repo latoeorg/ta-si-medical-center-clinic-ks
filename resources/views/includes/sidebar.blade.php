@@ -38,6 +38,13 @@
                         <p>Pasien</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="/riwayat-rekam-medis"
+                        class="nav-link {{ Request::is('riwayat-rekam-medis') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-history"></i>
+                        <p>Riwayat Pemeriksaan</p>
+                    </a>
+                </li>
                 <li class="nav-header font-weight-bold">Setup</li>
                 <li class="nav-item">
                     <a href="/kategori-obat" class="nav-link {{ Request::is('kategori-obat') ? 'active' : '' }}">

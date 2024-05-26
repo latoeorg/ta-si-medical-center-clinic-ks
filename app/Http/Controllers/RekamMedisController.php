@@ -32,7 +32,10 @@ class RekamMedisController extends Controller
      */
     public function store(Request $request)
     {
-        $result = RekamMedis::create($request->all());
+        $data = $request->all();
+        $data['status'] = 'DRAFT';
+
+        $result = RekamMedis::create($data);
 
         return redirect()->route('rekam-medis.show', $result->id);
     }
@@ -60,16 +63,29 @@ class RekamMedisController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, RekamMedis $rekamMedis)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $rekamMedis = RekamMedis::findOrFail($id);
+        $rekamMedis->update($data);
+
+        return redirect()->route('rekam-medis.show', $id)->with('success', 'Data berhasil diubah');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(RekamMedis $rekamMedis)
+    public function destroy($id)
     {
-        //
+        $rekamMedisObat = RekamMedisObat::where('rekam_medis_id', $id)->get();
+        foreach ($rekamMedisObat as $item) {
+            $item->delete();
+        }
+
+        $rekamMedis = RekamMedis::findOrFail($id);
+        $rekamMedis->delete();
+
+        return redirect()->route('rekam-medis.index')->with('success', 'Data berhasil dihapus');
     }
 }

@@ -32,6 +32,7 @@
                                         <th>Pasien</th>
                                         <th>Dokter</th>
                                         <th>Total Harga</th>
+                                        <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -40,15 +41,20 @@
                                     @foreach ($items as $item)
                                         <tr>
                                             <td>
-                                                #00{{ $i }}
+                                                #00{{ $item->id }}
                                             </td>
                                             <td>{{ $item->tanggal }}</td>
                                             <td>{{ $item->pasien->nama }}</td>
                                             <td>{{ $item->dokter->name }}</td>
                                             <td class="rupiah-format text-right">{{ $item->total_harga }}</td>
                                             <td>
+                                                @include('includes.badge-status', [
+                                                    'status' => $item->status,
+                                                ])
+                                            </td>
+                                            <td>
                                                 <form id="formDelete{{ $item->id }}"
-                                                    action="{{ route('kategori-obat.destroy', $item->id) }}" method="POST"
+                                                    action="{{ route('rekam-medis.destroy', $item->id) }}" method="POST"
                                                     class="d-inline">
                                                     @csrf
                                                     @method('delete')
