@@ -15,6 +15,8 @@ return new class extends Migration {
             $table->foreignId('rekam_medis_id')->constrained('rekam_medis');
             $table->foreignId('obat_id')->constrained('obats');
             $table->integer('jumlah');
+            $table->integer('harga');
+            $table->integer('total_harga');
             $table->text('aturan_pakai')->nullable();
             $table->text('keterangan')->nullable();
             $table->timestamps();

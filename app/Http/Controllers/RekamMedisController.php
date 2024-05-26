@@ -16,19 +16,11 @@ class RekamMedisController extends Controller
     {
         $items = RekamMedis::all();
 
-        return view('pages.rekam-medis.index', [
-            'items' => $items,
-        ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
         $list_pasien = Pasien::all();
 
-        return view('pages.rekam-medis.create', [
+        return view('pages.rekam-medis.index', [
+            'items' => $items,
+
             'list_pasien' => $list_pasien,
         ]);
     }
@@ -38,9 +30,9 @@ class RekamMedisController extends Controller
      */
     public function store(Request $request)
     {
-        RekamMedis::create($request->all());
+        $result = RekamMedis::create($request->all());
 
-        return redirect()->route('rekam-medis.index')->with('success', 'Rekam Medis berhasil ditambahkan');
+        return redirect()->route('rekam-medis.edit', $result->id);
     }
 
     /**
@@ -54,9 +46,17 @@ class RekamMedisController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(RekamMedis $rekamMedis)
+    public function edit($id)
     {
-        //
+        $rekamMedis = RekamMedis::findOrFail($id);
+
+        $list_pasien = Pasien::all();
+
+        return view('pages.rekam-medis.update', [
+            'rekamMedis' => $rekamMedis,
+
+            'list_pasien' => $list_pasien,
+        ]);
     }
 
     /**

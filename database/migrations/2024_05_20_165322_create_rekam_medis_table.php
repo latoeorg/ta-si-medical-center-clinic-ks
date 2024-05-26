@@ -12,13 +12,14 @@ return new class extends Migration {
     {
         Schema::create('rekam_medis', function (Blueprint $table) {
             $table->id();
-            $table->integer('pasien_id')->unsigned();
-            $table->integer('doctor_id')->unsigned();
+            $table->integer('pasien_id')->unsigned()->nullable();
+            $table->integer('doctor_id')->unsigned()->nullable();
             $table->date('tanggal')->default(now());
             $table->text('keluhan')->nullable();
             $table->text('diagnosis')->nullable();
             $table->text('keterangan')->nullable();
-            $table->text('status');
+            $table->text('status')->nullable();
+            $table->integer('total_harga')->nullable();
             $table->timestamps();
         });
     }

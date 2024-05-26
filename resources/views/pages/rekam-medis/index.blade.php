@@ -19,16 +19,19 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <a href="{{ route('rekam-medis.create') }}" class="btn btn-primary">
-                                <i class="fa fa-plus"></i>
-                                Tambah Pemeriksaan
-                            </a>
+
+                            <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
+                                    class="fa fa-plus"></i> Tambah Pemeriksaan</a>
+                            @include('pages.rekam-medis.create')
 
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
-                                        <th>Nama</th>
+                                        <th>ID</th>
+                                        <th>Tanggal</th>
+                                        <th>Pasien</th>
+                                        <th>Dokter</th>
+                                        <th>Total Harga</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -37,9 +40,12 @@
                                     @foreach ($items as $item)
                                         <tr>
                                             <td>
-                                                {{ $i }}
+                                                #00{{ $i }}
                                             </td>
-                                            <td>{{ $item->nama }}</td>
+                                            <td>{{ $item->tanggal }}</td>
+                                            <td>{{ $item->pasien->nama }}</td>
+                                            <td>{{ $item->dokter->name }}</td>
+                                            <td class="rupiah-format text-right">{{ $item->total_harga }}</td>
                                             <td>
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('kategori-obat.destroy', $item->id) }}" method="POST"
@@ -69,14 +75,13 @@
                                                         })
                                                     }
                                                 </script>
-                                                <a type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#formUpdate{{ $item->id }}">
+                                                <a href="{{ route('rekam-medis.edit', $item->id) }}"
+                                                    class="btn btn-warning">
                                                     <i class="fa fa-edit" title="Ubah Data User"></i>
                                                 </a>
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
-                                        @include('pages.kategori-obat.update')
                                     @endforeach
                                 </tbody>
                             </table>
