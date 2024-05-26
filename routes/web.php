@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\RekamMedisController;
+use App\Http\Controllers\RekamMedisObatController;
 use App\Http\Controllers\PasienController;
 
 use App\Http\Controllers\KategoriObatController;
@@ -26,6 +27,7 @@ Route::resource('/', DashboardController::class)->middleware('auth');
 
 Route::resource('/obat', ObatController::class)->middleware('auth');
 Route::resource('/rekam-medis', RekamMedisController::class)->middleware('auth');
+Route::resource('/rekam-medis-obat', RekamMedisObatController::class)->middleware('auth');
 Route::resource('/pasien', PasienController::class)->middleware('auth');
 
 Route::resource('/kategori-obat', KategoriObatController::class)->middleware('auth');

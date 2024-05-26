@@ -75,7 +75,7 @@
                                                         })
                                                     }
                                                 </script>
-                                                <a href="{{ route('rekam-medis.edit', $item->id) }}"
+                                                <a href="{{ route('rekam-medis.show', $item->id) }}"
                                                     class="btn btn-warning">
                                                     <i class="fa fa-edit" title="Ubah Data User"></i>
                                                 </a>

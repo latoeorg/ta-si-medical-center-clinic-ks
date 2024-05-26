@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\RekamMedis;
 use Illuminate\Http\Request;
 
+use App\Models\RekamMedis;
+use App\Models\RekamMedisObat;
+use App\Models\Obat;
 use App\Models\Pasien;
 
 class RekamMedisController extends Controller
@@ -32,29 +34,25 @@ class RekamMedisController extends Controller
     {
         $result = RekamMedis::create($request->all());
 
-        return redirect()->route('rekam-medis.edit', $result->id);
+        return redirect()->route('rekam-medis.show', $result->id);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(RekamMedis $rekamMedis)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
+    public function show($id)
     {
         $rekamMedis = RekamMedis::findOrFail($id);
+        $items = RekamMedisObat::where('rekam_medis_id', $id)->get();
 
+        $list_obat = Obat::all();
         $list_pasien = Pasien::all();
 
-        return view('pages.rekam-medis.update', [
+        return view('pages.rekam-medis.obat.index', [
             'rekamMedis' => $rekamMedis,
+            'items' => $items,
 
+            'list_obat' => $list_obat,
             'list_pasien' => $list_pasien,
         ]);
     }

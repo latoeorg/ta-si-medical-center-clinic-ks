@@ -12,7 +12,7 @@ class RekamMedis extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['pasien_id', 'doctor_id', 'tanggal', 'keluhan', 'diagnosis', 'keterangan', 'status'];
+    protected $fillable = ['pasien_id', 'doctor_id', 'tanggal', 'keluhan', 'diagnosis', 'keterangan', 'status', 'total_harga'];
 
     public function pasien()
     {
