@@ -46,21 +46,21 @@
                                 <div class="form-group">
                                     <label for="keluhan">Keluhan</label>
                                     <textarea class="form-control" id="keluhan" name="keluhan" placeholder="Masukan Keluhan"
-                                        disabled={{ $rekamMedis == 'DONE' }}>{{ $rekamMedis->keluhan }}</textarea>
+                                        {{ $rekamMedis->status === 'DONE' ? 'disabled' : '' }}>{{ $rekamMedis->keluhan }}</textarea>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="diagnosis">Diagnosis</label>
                                     <textarea class="form-control" id="diagnosis" name="diagnosis" placeholder="Masukan Diagnosis"
-                                        disabled={{ $rekamMedis == 'DONE' }}>{{ $rekamMedis->diagnosis }}</textarea>
+                                        {{ $rekamMedis->status === 'DONE' ? 'disabled' : '' }}>{{ $rekamMedis->diagnosis }}</textarea>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="keterangan">Keterangan</label>
                                     <textarea class="form-control" id="keterangan" name="keterangan" placeholder="Masukan Keterangan"
-                                        disabled={{ $rekamMedis == 'DONE' }}>{{ $rekamMedis->keterangan }}</textarea>
+                                        {{ $rekamMedis->status === 'DONE' ? 'disabled' : '' }}>{{ $rekamMedis->keterangan }}</textarea>
                                 </div>
                             </div>
                         </div>
