@@ -6,8 +6,8 @@
             <div class="card-body login-card-body">
                 <div class="login-logo">
                     <a href="/">
-                        {{-- <img src="{{ url('/logo.png') }}" alt="Logo" width="100" /> --}}
-                        <h1 class="font-weight-bold text-primary">Logo</h1>
+                        <img src="{{ url('/logo.png') }}" alt="Logo" width="100" />
+                        {{-- <h1 class="font-weight-bold text-primary">Logo</h1> --}}
                     </a>
                 </div>
                 {{-- <h6 class="text-center font-weight-bold">
@@ -35,7 +35,7 @@
                     <div class="row justify-content-end">
                         <!-- /.col -->
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary btn-block">Masuk</button>
+                            <button type="submit" class="btn btn-success btn-block">Masuk</button>
                         </div>
                         <!-- /.col -->
                     </div>
