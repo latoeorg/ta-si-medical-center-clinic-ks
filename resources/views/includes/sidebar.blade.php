@@ -20,6 +20,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/antrian" class="nav-link {{ Request::is('antrian') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-list"></i>
+                        <p>Antrian</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/obat" class="nav-link {{ Request::is('obat') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-pills"></i>
                         <p>Obat</p>
