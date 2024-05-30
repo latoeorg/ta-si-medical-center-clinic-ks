@@ -19,11 +19,11 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-
-                            <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
-                                    class="fa fa-plus"></i> Tambah Pemeriksaan</a>
-                            @include('pages.rekam-medis.create')
-
+                            @if (request()->session()->get('user')['role'] === 'DOKTER')
+                                <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
+                                        class="fa fa-plus"></i> Tambah Pemeriksaan</a>
+                                @include('pages.rekam-medis.create')
+                            @endif
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
@@ -53,38 +53,43 @@
                                                 ])
                                             </td>
                                             <td>
-                                                <form id="formDelete{{ $item->id }}"
-                                                    action="{{ route('rekam-medis.destroy', $item->id) }}" method="POST"
-                                                    class="d-inline">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <a type="button" class="btn btn-danger"
-                                                        onclick="handleDelete({{ $item->id }})">
-                                                        <i class="fa fa-trash" title="Hapus Data User"></i>
-                                                    </a>
-                                                </form>
+                                                <button class="btn btn-primary">
+                                                    <i class="fa fa-eye"></i>
+                                                </button>
+                                                @if (request()->session()->get('user')['role'] === 'DOKTER')
+                                                    <form id="formDelete{{ $item->id }}"
+                                                        action="{{ route('rekam-medis.destroy', $item->id) }}"
+                                                        method="POST" class="d-inline">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <a type="button" class="btn btn-danger"
+                                                            onclick="handleDelete({{ $item->id }})">
+                                                            <i class="fa fa-trash" title="Hapus Data User"></i>
+                                                        </a>
+                                                    </form>
 
-                                                <script>
-                                                    function handleDelete(id) {
-                                                        Swal.fire({
-                                                            title: 'Apakah kamu yakin?',
-                                                            text: "kamu akan menghapus data ini!",
-                                                            icon: 'warning',
-                                                            showCancelButton: true,
-                                                            confirmButtonColor: '#3085d6',
-                                                            cancelButtonColor: '#d33',
-                                                            confirmButtonText: 'Ya, hapus!'
-                                                        }).then((result) => {
-                                                            if (result.isConfirmed) {
-                                                                document.getElementById('formDelete' + id).submit();
-                                                            }
-                                                        })
-                                                    }
-                                                </script>
-                                                <a href="{{ route('rekam-medis.show', $item->id) }}"
-                                                    class="btn btn-warning">
-                                                    <i class="fa fa-edit" title="Ubah Data User"></i>
-                                                </a>
+                                                    <script>
+                                                        function handleDelete(id) {
+                                                            Swal.fire({
+                                                                title: 'Apakah kamu yakin?',
+                                                                text: "kamu akan menghapus data ini!",
+                                                                icon: 'warning',
+                                                                showCancelButton: true,
+                                                                confirmButtonColor: '#3085d6',
+                                                                cancelButtonColor: '#d33',
+                                                                confirmButtonText: 'Ya, hapus!'
+                                                            }).then((result) => {
+                                                                if (result.isConfirmed) {
+                                                                    document.getElementById('formDelete' + id).submit();
+                                                                }
+                                                            })
+                                                        }
+                                                    </script>
+                                                    <a href="{{ route('rekam-medis.show', $item->id) }}"
+                                                        class="btn btn-warning">
+                                                        <i class="fa fa-edit" title="Ubah Data User"></i>
+                                                    </a>
+                                                @endif
                                             </td>
                                         </tr>
                                         <?php $i++; ?>

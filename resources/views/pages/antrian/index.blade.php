@@ -63,9 +63,11 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
-                                    class="fa fa-plus"></i> Tambah Antrian</a>
-                            @include('pages.antrian.create')
+                            @if (request()->session()->get('user')['role'] === 'ADMIN')
+                                <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
+                                        class="fa fa-plus"></i> Tambah Antrian</a>
+                                @include('pages.antrian.create')
+                            @endif
                             <table id="defaultTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
