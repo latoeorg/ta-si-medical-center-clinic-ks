@@ -85,7 +85,7 @@ class PembelianController extends Controller
                 ObatHistory::create([
                     'obat_id' => $i->obat_id,
                     'user_id' => auth()->user()->id,
-                    'stok_sebelum' => $obat->stok,
+                    'stok_sebelum' => $obat->stok || 0,
                     'stok' => $i->quantity,
                     'stok_setelah' => $obat->stok + $i->quantity,
                     'description' => 'Obat masuk dari Pembelian #00' . $id,

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Obat;
+use App\Models\ObatHistory;
 use App\Models\KategoriObat;
 use Illuminate\Http\Request;
 
@@ -44,9 +45,11 @@ class ObatController extends Controller
     public function show($id)
     {
         $obat = Obat::findOrFail($id);
+        $histories = ObatHistory::where('obat_id', $id)->get();
 
         return view('pages.obat.history', [
             'obat' => $obat,
+            'histories' => $histories,
         ]);
     }
 

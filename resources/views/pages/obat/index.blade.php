@@ -30,6 +30,7 @@
                                         <th>Kategori</th>
                                         <th>Tipe</th>
                                         <th>Dosis</th>
+                                        <th>Stok</th>
                                         <th>Harga</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -45,6 +46,7 @@
                                             <td>{{ $item->kategori->nama }}</td>
                                             <td>{{ $item->tipe }}</td>
                                             <td>{{ $item->dosis }}</td>
+                                            <td>{{ $item->stok }}</td>
                                             <td class="rupiah-format">{{ $item->harga }}</td>
                                             <td>
                                                 <a href="{{ route('obat.show', $item->id) }}" class="btn btn-primary">

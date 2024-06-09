@@ -15,4 +15,14 @@ class ObatHistory extends Model
      * @var array<int, string>
      */
     protected $fillable = ['obat_id', 'user_id', 'tipe', 'stok_sebelum', 'stok', 'stok_setelah'];
+
+    public function obat()
+    {
+        return $this->belongsTo(Obat::class, 'obat_id', 'id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

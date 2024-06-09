@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->integer('obat_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->string('tipe');
-            $table->integer('stok_sebelum');
+            $table->integer('stok_sebelum')->default(0);
             $table->integer('stok');
             $table->integer('stok_setelah');
             $table->timestamps();
