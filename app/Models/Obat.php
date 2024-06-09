@@ -16,7 +16,7 @@ class Obat extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['nama', 'kategori_id', 'tipe', 'dosis', 'harga', 'keterangan'];
+    protected $fillable = ['nama', 'kategori_id', 'tipe', 'dosis', 'stock', 'harga', 'keterangan'];
 
     public function kategori()
     {

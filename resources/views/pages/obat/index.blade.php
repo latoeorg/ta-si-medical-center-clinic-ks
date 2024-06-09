@@ -47,6 +47,11 @@
                                             <td>{{ $item->dosis }}</td>
                                             <td class="rupiah-format">{{ $item->harga }}</td>
                                             <td>
+                                                <a href="{{ route('obat.show', $item->id) }}" class="btn btn-primary">
+                                                    <i class="fa fa-eye"></i>
+                                                    History
+                                                </a>
+
                                                 <form id="formDelete{{ $item->id }}"
                                                     action="{{ route('obat.destroy', $item->id) }}" method="POST"
                                                     class="d-inline">

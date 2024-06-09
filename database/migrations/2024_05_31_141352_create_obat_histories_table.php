@@ -10,15 +10,14 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('obats', function (Blueprint $table) {
+        Schema::create('obat_histories', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->integer('kategori_id')->unsigned();
+            $table->integer('obat_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->string('tipe');
-            $table->string('dosis');
+            $table->integer('stok_sebelum');
             $table->integer('stok');
-            $table->integer('harga');
-            $table->string('keterangan')->nullable();
+            $table->integer('stok_setelah');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('obats');
+        Schema::dropIfExists('obat_histories');
     }
 };

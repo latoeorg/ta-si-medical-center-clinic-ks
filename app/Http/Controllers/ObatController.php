@@ -41,9 +41,13 @@ class ObatController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Obat $obat)
+    public function show($id)
     {
-        //
+        $obat = Obat::findOrFail($id);
+
+        return view('pages.obat.history', [
+            'obat' => $obat,
+        ]);
     }
 
     /**

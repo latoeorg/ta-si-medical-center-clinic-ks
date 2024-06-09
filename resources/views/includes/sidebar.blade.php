@@ -31,6 +31,13 @@
                         <p>Obat</p>
                     </a>
                 </li>
+                <li class="nav-header font-weight-bold">Pembelian</li>
+                <li class="nav-item">
+                    <a href="/pembelian" class="nav-link {{ Request::is('pembelian') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-pills"></i>
+                        <p>Pembelian</p>
+                    </a>
+                </li>
                 <li class="nav-header font-weight-bold">Rekam Medis</li>
                 <li class="nav-item">
                     <a href="/rekam-medis" class="nav-link {{ Request::is('rekam-medis') ? 'active' : '' }}">

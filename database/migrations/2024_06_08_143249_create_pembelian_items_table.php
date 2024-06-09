@@ -10,15 +10,12 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('obats', function (Blueprint $table) {
+        Schema::create('pembelian_items', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->integer('kategori_id')->unsigned();
-            $table->string('tipe');
-            $table->string('dosis');
-            $table->integer('stok');
-            $table->integer('harga');
-            $table->string('keterangan')->nullable();
+            $table->foreignId('obat_id')->constrained();
+            $table->foreignId('pembelian_id')->constrained();
+            $table->integer('quantity');
+            $table->integer('total');
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('obats');
+        Schema::dropIfExists('pembelian_items');
     }
 };
