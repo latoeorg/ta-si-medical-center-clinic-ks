@@ -34,7 +34,7 @@
                 <li class="nav-header font-weight-bold">Pembelian</li>
                 <li class="nav-item">
                     <a href="/pembelian" class="nav-link {{ Request::is('pembelian') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-pills"></i>
+                        <i class="nav-icon fas fa-file"></i>
                         <p>Pembelian</p>
                     </a>
                 </li>

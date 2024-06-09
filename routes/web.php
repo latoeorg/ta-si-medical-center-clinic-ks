@@ -9,6 +9,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AntrianController;
 
 use App\Http\Controllers\ObatController;
+use App\Http\Controllers\PembelianController;
+use App\Http\Controllers\PembelianItemController;
 use App\Http\Controllers\RekamMedisController;
 use App\Http\Controllers\RekamMedisObatController;
 use App\Http\Controllers\PasienController;
@@ -33,6 +35,8 @@ Route::post('/antrian-next', [AntrianController::class, 'next'])->middleware('au
 Route::post('/antrian-reset', [AntrianController::class, 'reset'])->middleware('auth');
 
 Route::resource('/obat', ObatController::class)->middleware('auth');
+Route::resource('/pembelian', PembelianController::class)->middleware('auth');
+Route::resource('/pembelian-item', PembelianItemController::class)->middleware('auth');
 Route::resource('/rekam-medis', RekamMedisController::class)->middleware('auth');
 Route::resource('/rekam-medis-obat', RekamMedisObatController::class)->middleware('auth');
 Route::resource('/pasien', PasienController::class)->middleware('auth');
