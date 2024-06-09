@@ -53,9 +53,10 @@
                                                 ])
                                             </td>
                                             <td>
-                                                <button class="btn btn-primary">
+                                                <a href="{{ route('rekam-medis.show', $item->id) }}"
+                                                    class="btn btn-primary">
                                                     <i class="fa fa-eye"></i>
-                                                </button>
+                                                </a>
                                                 @if (request()->session()->get('user')['role'] === 'DOKTER')
                                                     <form id="formDelete{{ $item->id }}"
                                                         action="{{ route('rekam-medis.destroy', $item->id) }}"

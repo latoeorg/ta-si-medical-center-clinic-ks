@@ -21,6 +21,9 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
+            <div class="row">
+                @include('includes.error-card')
+            </div>
             @if ($rekamMedis->status !== 'DONE')
                 <div class="d-flex justify-content-end mb-3">
                     <form action="{{ route('rekam-medis.update', $rekamMedis->id) }}" method="POST">

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\RekamMedis;
 use App\Models\RekamMedisObat;
 use App\Models\Obat;
+use App\Models\ObatHistory;
 use App\Models\Pasien;
 
 class RekamMedisController extends Controller
@@ -65,10 +66,41 @@ class RekamMedisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-
         $rekamMedis = RekamMedis::findOrFail($id);
-        $rekamMedis->update($data);
+
+        if ($request->status == 'DONE') {
+            if (!$rekamMedis->keluhan) {
+                return redirect()->route('rekam-medis.show', $id)->with('error', 'Keluhan harus diisi');
+            }
+
+            if (!$rekamMedis->diagnosis) {
+                return redirect()->route('rekam-medis.show', $id)->with('error', 'diagnosis harus diisi');
+            }
+
+            if (!$rekamMedis->keterangan) {
+                return redirect()->route('rekam-medis.show', $id)->with('error', 'keterangan harus diisi');
+            }
+
+            $rekamMedisObats = RekamMedisObat::where('rekam_medis_id', $id)->get();
+            foreach ($rekamMedisObats as $i) {
+                $obat = Obat::find($i->obat_id);
+
+                ObatHistory::create([
+                    'obat_id' => $i->obat_id,
+                    'user_id' => auth()->user()->id,
+                    'stok_sebelum' => $obat->stok || 0,
+                    'stok' => $i->jumlah,
+                    'stok_setelah' => $obat->stok - $i->jumlah,
+                    'description' => 'Obat dijual dari Rekam Medis #00' . $id,
+                    'tipe' => 'PENJUALAN',
+                ]);
+
+                $obat->stok -= $i->jumlah;
+                $obat->save();
+            }
+        }
+
+        $rekamMedis->update($request->all());
 
         return redirect()->route('rekam-medis.show', $id)->with('success', 'Data berhasil diubah');
     }
