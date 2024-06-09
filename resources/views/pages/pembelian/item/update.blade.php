@@ -6,7 +6,7 @@
             <form action="{{ route('pembelian-item.update', $item->id) }}" method="POST">
                 @csrf
                 @method('PUT')
-                <input type="hidden" name="purchase_order_id" value="{{ $pembelian->id }}">
+                <input type="hidden" name="pembelian_id" value="{{ $pembelian->id }}">
 
                 <div class="modal-header">
                     <h5 class="modal-title" id="formUpdate{{ $item->id }}Label">
@@ -18,17 +18,17 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="pembelian">Purchase Order</label>
+                        <label for="pembelian">Pembelian ID</label>
                         <input type="text" class="form-control" id="pembelian" disabled
-                            value="Purchase Order #00{{ $pembelian->id }}" />
+                            value="Pembelian ID #00{{ $pembelian->id }}" />
                     </div>
                     <div class="form-group">
-                        <label for="item_id">Item</label>
-                        <select name="item_id" id="item_id" class="form-control" required>
-                            <option value="">-- Select Item --</option>
+                        <label for="obat_id">Obat</label>
+                        <select name="obat_id" id="obat_id" class="form-control" required>
+                            <option value="">-- Pilih Obat --</option>
                             @foreach ($list_obat as $i)
-                                <option value="{{ $i->id }}" {{ $i->id == $item->item_id ? 'selected' : '' }}>
-                                    {{ $i->name }} - {{ $i->price }}
+                                <option value="{{ $i->id }}" {{ $i->id == $item->obat_id ? 'selected' : '' }}>
+                                    {{ $i->nama }}
                                 </option>
                             @endforeach
                         </select>

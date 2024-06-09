@@ -4,11 +4,11 @@
         <div class="modal-content">
             <form action="{{ route('pembelian-item.store') }}" method="POST">
                 @csrf
-                <input type="hidden" name="purchase_order_id" value="{{ $pembelian->id }}">
+                <input type="hidden" name="pembelian_id" value="{{ $pembelian->id }}">
 
                 <div class="modal-header">
                     <h5 class="modal-title" id="formCreateLabel">
-                        Add Item
+                        Tambah Obat
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -16,17 +16,17 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="pembelian">Purchase Order</label>
+                        <label for="pembelian">Pembelian ID</label>
                         <input type="text" class="form-control" id="pembelian" disabled
-                            value="Purchase Order #00{{ $pembelian->id }}" />
+                            value="Pembelian ID #00{{ $pembelian->id }}" />
                     </div>
                     <div class="form-group">
-                        <label for="item_id">Item</label>
-                        <select name="item_id" id="item_id" class="form-control" required>
-                            <option value="">-- Select Item --</option>
+                        <label for="obat_id">Obat</label>
+                        <select name="obat_id" id="obat_id" class="form-control" required>
+                            <option value="">-- Pilih Obat --</option>
                             @foreach ($list_obat as $i)
                                 <option value="{{ $i->id }}">
-                                    {{ $i->name }} - {{ $i->price }}
+                                    {{ $i->nama }}
                                 </option>
                             @endforeach
                         </select>

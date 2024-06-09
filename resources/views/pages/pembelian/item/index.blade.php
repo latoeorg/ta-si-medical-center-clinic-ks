@@ -104,7 +104,7 @@
                                             <td>
                                                 {{ $i }}
                                             </td>
-                                            <td>{{ $item->item->name }}</td>
+                                            <td>{{ $item->obat->nama }}</td>
                                             <td>{{ $item->quantity }}</td>
                                             <td class="rupiah-format text-right">{{ $item->total }}</td>
                                             @if ($pembelian->status == 'DRAFT')
