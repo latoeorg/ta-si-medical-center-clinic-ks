@@ -55,7 +55,7 @@
                                 </button>
                             </form>
                         @endif
-                        @if ($pembelian->status == 'WAITING_VALIDATION' && request()->session()->get('user')['role'] === 'ADMIN')
+                        @if ($pembelian->status == 'WAITING_VALIDATION' && request()->session()->get('user')['role'] === 'KEPALA_KLINIK')
                             <form action="{{ route('pembelian.update', $pembelian->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')

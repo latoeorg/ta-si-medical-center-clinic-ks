@@ -25,12 +25,14 @@
                         <p>Antrian</p>
                     </a>
                 </li>
+
                 <li class="nav-item">
                     <a href="/obat" class="nav-link {{ Request::is('obat') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-pills"></i>
                         <p>Obat</p>
                     </a>
                 </li>
+
                 <li class="nav-header font-weight-bold">Pembelian</li>
                 <li class="nav-item">
                     <a href="/pembelian" class="nav-link {{ Request::is('pembelian') ? 'active' : '' }}">
@@ -38,6 +40,7 @@
                         <p>Pembelian</p>
                     </a>
                 </li>
+
                 <li class="nav-header font-weight-bold">Rekam Medis</li>
                 <li class="nav-item">
                     <a href="/rekam-medis" class="nav-link {{ Request::is('rekam-medis') ? 'active' : '' }}">
@@ -45,6 +48,7 @@
                         <p>Pemeriksaan</p>
                     </a>
                 </li>
+
                 <li class="nav-item">
                     <a href="/pasien" class="nav-link {{ Request::is('pasien') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-user-injured"></i>

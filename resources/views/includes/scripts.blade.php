@@ -50,7 +50,7 @@
 <script>
     $(function() {
         $("#example1").DataTable({
-            "responsive": true,
+            "responsive": false,
             "lengthChange": false,
             "autoWidth": false,
             "buttons": ["excel", "pdf", "print"]

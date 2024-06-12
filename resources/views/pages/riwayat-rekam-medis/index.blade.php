@@ -26,6 +26,10 @@
                                         <th>Tanggal</th>
                                         <th>Pasien</th>
                                         <th>Dokter</th>
+                                        <th>Keluhan</th>
+                                        <th>Diagnosis</th>
+                                        <th>Keterangan</th>
+                                        <th>Obat</th>
                                         <th>Total Harga</th>
                                     </tr>
                                 </thead>
@@ -39,6 +43,14 @@
                                             <td>{{ $item->tanggal }}</td>
                                             <td>{{ $item->pasien->nama }}</td>
                                             <td>{{ $item->dokter->name }}</td>
+                                            <td>{{ $item->keluhan }}</td>
+                                            <td>{{ $item->diagnosis }}</td>
+                                            <td>{{ $item->keterangan }}</td>
+                                            <td>
+                                                @foreach ($item->obat as $obat)
+                                                    {{ $obat->nama }},
+                                                @endforeach
+                                            </td>
                                             <td class="rupiah-format text-right">{{ $item->total_harga }}</td>
                                         </tr>
                                         <?php $i++; ?>

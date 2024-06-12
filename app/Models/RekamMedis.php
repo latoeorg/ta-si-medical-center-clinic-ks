@@ -23,4 +23,9 @@ class RekamMedis extends Model
     {
         return $this->belongsTo(User::class, 'doctor_id', 'id');
     }
+
+    public function obat()
+    {
+        return $this->belongsToMany(Obat::class, 'rekam_medis_obats', 'rekam_medis_id', 'obat_id');
+    }
 }

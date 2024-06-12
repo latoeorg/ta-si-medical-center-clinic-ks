@@ -19,7 +19,8 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            @if (request()->session()->get('user')['role'] === 'DOKTER')
+                            @if (request()->session()->get('user')['role'] === 'DOKTER' ||
+                                    request()->session()->get('user')['role'] === 'KEPALA_KLINIK')
                                 <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#formCreate"><i
                                         class="fa fa-plus"></i> Tambah Pemeriksaan</a>
                                 @include('pages.rekam-medis.create')
